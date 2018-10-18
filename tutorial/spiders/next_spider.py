@@ -36,12 +36,9 @@ class NextSpider(scrapy.Spider):
 
             yield{
                 'week': week,
-                'day': mhash(rows.xpath('td[1]//text()').extract()[0]),
-                'date': mhash(rows.xpath('td[2]//text()').extract()[0]),
-                'time': mhash(rows.xpath('td[3]//text()').extract()[0]),
-                'winner': mhash(rows.xpath('td[4]//text()').extract()[0]),
+                'winner': rows.xpath('td[4]//text()').extract(),
                 #'winner_home': rows.xpath('td[5]//text()').extract(),
-                'loser': mhash(rows.xpath('td[6]//text()').extract()[0]),
+                'loser': rows.xpath('td[6]//text()').extract(),
                 'ptstot': 0,
             }
 
